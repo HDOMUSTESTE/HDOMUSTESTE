@@ -4,22 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel Paraíso</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
+        /* Estilos Gerais */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
+            font-family: 'Roboto', sans-serif;
             color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
         }
         header {
             background: #4CAF50;
             color: white;
             padding: 20px;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         nav {
             display: flex;
@@ -51,61 +60,103 @@
             height: 100%;
             object-fit: cover;
         }
-        .hero h2 {
+        .dots {
             position: absolute;
             bottom: 20px;
-            left: 20px;
-            font-size: 2.5em;
-            color: white;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            background: white;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .dot.active {
+            background: #4CAF50;
         }
         main {
             padding: 40px 20px;
             text-align: center;
         }
-        main h3 {
-            font-size: 2em;
-            margin-bottom: 20px;
+        .about, .services, .testimonials, .promotions {
+            margin-bottom: 40px;
         }
-        .about-text {
-            font-size: 1.2em;
-            line-height: 1.6;
+        .about p, .services p, .testimonials p {
             max-width: 800px;
             margin: 0 auto;
+        }
+        .services {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .service {
+            margin: 20px;
+            text-align: center;
+        }
+        .service img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 10px;
+        }
+        .testimonials .testimonial {
+            margin: 20px;
+        }
+        .promotions img {
+            width: 100%;
+            max-width: 600px;
+            margin: 10px auto;
+            display: block;
+        }
+        .checkin-form {
+            margin: 20px auto;
+            max-width: 400px;
+            text-align: left;
+            padding: 20px;
+            background: #f4f4f4;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .checkin-form input, .checkin-form button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .checkin-form button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .checkin-form button:hover {
+            background: #45a049;
         }
         footer {
             background: #333;
             color: white;
             text-align: center;
-            padding: 15px 0;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+            padding: 20px 10px;
         }
-        .checkin-btn {
-            display: inline-block;
-            background-color: #4CAF50;
+        .social-icons a {
+            margin: 0 10px;
             color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            margin-top: 20px;
-            border-radius: 5px;
-            font-size: 1.2em;
-            transition: background 0.3s;
+            font-size: 1.5em;
+            transition: color 0.3s;
         }
-        .checkin-btn:hover {
-            background-color: #45a049;
+        .social-icons a:hover {
+            color: #4CAF50;
         }
         @media (max-width: 768px) {
-            .hero h2 {
-                font-size: 1.8em;
-            }
-            nav {
+            .services {
                 flex-direction: column;
-            }
-            nav a {
-                padding: 12px 0;
-                text-align: center;
             }
         }
     </style>
@@ -123,32 +174,83 @@
     </nav>
     <div class="hero">
         <div class="carousel" id="carousel">
-            <img src="hotel1.jpg" alt="Imagem do hotel 1">
-            <img src="hotel2.jpg" alt="Imagem do hotel 2">
-            <img src="hotel3.jpg" alt="Imagem do hotel 3">
+            <img src="hotel1.jpg" alt="Imagem 1">
+            <img src="hotel2.jpg" alt="Imagem 2">
+            <img src="hotel3.jpg" alt="Imagem 3">
         </div>
-        <h2>Bem-vindo ao Hotel Paraíso</h2>
+        <div class="dots" id="dots"></div>
     </div>
     <main>
-        <h3>Sobre Nós</h3>
-        <p class="about-text">Descubra o conforto e a elegância no Hotel Paraíso. Localizado no coração da cidade, nosso hotel oferece acomodações sofisticadas, atendimento impecável e uma experiência inesquecível, seja para viagens a negócios ou lazer. Venha viver momentos especiais conosco.</p>
-        <a href="checkin.html" class="checkin-btn">Faça seu Check-in</a>
+        <section class="about">
+            <h2>Sobre Nós</h2>
+            <p>Descubra o conforto e a elegância no Hotel Paraíso. Nosso hotel oferece acomodações sofisticadas e experiências inesquecíveis.</p>
+        </section>
+        <section class="services">
+            <h2>Nossos Serviços</h2>
+            <div class="service">
+                <img src="spa.png" alt="Spa">
+                <p>Spa</p>
+            </div>
+            <div class="service">
+                <img src="wifi.png" alt="Wi-Fi">
+                <p>Wi-Fi Gratuito</p>
+            </div>
+            <div class="service">
+                <img src="pool.png" alt="Piscina">
+                <p>Piscina</p>
+            </div>
+        </section>
+        <section class="testimonials">
+            <h2>Depoimentos</h2>
+            <p class="testimonial">"Melhor estadia que já tive! Recomendo o Hotel Paraíso para todos."</p>
+            <p class="testimonial">"Equipe muito atenciosa e instalações incríveis!"</p>
+        </section>
+        <section class="promotions">
+            <h2>Promoções Especiais</h2>
+            <img src="promo.jpg" alt="Promoção">
+        </section>
+        <form class="checkin-form">
+            <h2>Faça seu Check-in</h2>
+            <input type="text" placeholder="Nome completo" required>
+            <input type="text" placeholder="Número da Reserva" required>
+            <input type="date" required>
+            <button type="submit">Enviar</button>
+        </form>
     </main>
     <footer>
         <p>&copy; 2024 Hotel Paraíso. Todos os direitos reservados.</p>
+        <div class="social-icons">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+        </div>
     </footer>
 
     <script>
-        let currentIndex = 0;
-        const images = document.querySelectorAll('.carousel img');
-        const totalImages = images.length;
+        const carousel = document.getElementById("carousel");
+        const dots = document.getElementById("dots");
+        const images = document.querySelectorAll(".carousel img");
+        let index = 0;
 
-        function changeImage() {
-            currentIndex = (currentIndex + 1) % totalImages;
-            document.querySelector('.carousel').style.transform = `translateX(-${currentIndex * 100}%)`;
-        }
+        // Create dots dynamically
+        images.forEach((_, i) => {
+            const dot = document.createElement("div");
+            dot.classList.add("dot");
+            if (i === 0) dot.classList.add("active");
+            dots.appendChild(dot);
+        });
 
-        setInterval(changeImage, 3000);
+        const updateCarousel = () => {
+            carousel.style.transform = `translateX(-${index * 100}%)`;
+            document.querySelectorAll(".dot").forEach((dot, i) => {
+                dot.classList.toggle("active", i === index);
+            });
+        };
+
+        setInterval(() => {
+            index = (index + 1) % images.length;
+            updateCarousel();
+        }, 3000);
     </script>
 </body>
 </html>
