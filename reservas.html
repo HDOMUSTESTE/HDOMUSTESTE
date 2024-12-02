@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas - Hotel Paraíso</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Hotel Paraíso</h1>
+    </header>
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="acomodacoes.html">Acomodações</a>
+        <a href="reservas.html">Reservas</a>
+        <a href="contato.html">Contato</a>
+    </nav>
+    <main>
+        <h2>Faça sua Reserva</h2>
+        <form action="confirmacao.html" method="post">
+            <label for="nome">Nome:</label><br>
+            <input type="text" id="nome" name="nome" required><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br>
+            <label for="data">Data de Check-in:</label><br>
+            <input type="date" id="data" name="data" required><br>
+            <label for="quarto">Tipo de Quarto:</label><br>
+            <select id="quarto" name="quarto">
+                <option value="luxo">Suíte Luxo</option>
+                <option value="standard">Quarto Standard</option>
+            </select><br><br>
+            <button type="submit">Reservar</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2024 Hotel Paraíso. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
