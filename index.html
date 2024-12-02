@@ -37,17 +37,26 @@
             background: #575757;
         }
         .hero {
-            background: url('hotel.jpg') no-repeat center center/cover;
+            position: relative;
+            width: 100%;
             height: 400px;
+            overflow: hidden;
+        }
+        .carousel {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-            padding: 0 20px;
+            transition: transform 1s ease-in-out;
+        }
+        .carousel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         .hero h2 {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
             font-size: 2.5em;
+            color: white;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
         main {
@@ -73,6 +82,20 @@
             bottom: 0;
             width: 100%;
         }
+        .checkin-btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            margin-top: 20px;
+            border-radius: 5px;
+            font-size: 1.2em;
+            transition: background 0.3s;
+        }
+        .checkin-btn:hover {
+            background-color: #45a049;
+        }
         @media (max-width: 768px) {
             .hero h2 {
                 font-size: 1.8em;
@@ -95,17 +118,37 @@
         <a href="index.html">Início</a>
         <a href="acomodacoes.html">Acomodações</a>
         <a href="reservas.html">Reservas</a>
+        <a href="checkin.html">Check-in</a>
         <a href="contato.html">Contato</a>
     </nav>
     <div class="hero">
+        <div class="carousel" id="carousel">
+            <img src="hotel1.jpg" alt="Imagem do hotel 1">
+            <img src="hotel2.jpg" alt="Imagem do hotel 2">
+            <img src="hotel3.jpg" alt="Imagem do hotel 3">
+        </div>
         <h2>Bem-vindo ao Hotel Paraíso</h2>
     </div>
     <main>
         <h3>Sobre Nós</h3>
         <p class="about-text">Descubra o conforto e a elegância no Hotel Paraíso. Localizado no coração da cidade, nosso hotel oferece acomodações sofisticadas, atendimento impecável e uma experiência inesquecível, seja para viagens a negócios ou lazer. Venha viver momentos especiais conosco.</p>
+        <a href="checkin.html" class="checkin-btn">Faça seu Check-in</a>
     </main>
     <footer>
         <p>&copy; 2024 Hotel Paraíso. Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.carousel img');
+        const totalImages = images.length;
+
+        function changeImage() {
+            currentIndex = (currentIndex + 1) % totalImages;
+            document.querySelector('.carousel').style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        setInterval(changeImage, 3000);
+    </script>
 </body>
 </html>
