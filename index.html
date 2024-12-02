@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel Paraíso</title>
+    <title>Hotel Domus Esplanada</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         /* Estilos Gerais */
@@ -47,97 +47,56 @@
         }
         .hero {
             position: relative;
-            width: 100%;
+            background: url('fachada.jpg') no-repeat center center/cover;
             height: 400px;
-            overflow: hidden;
-        }
-        .carousel {
+            color: white;
             display: flex;
-            transition: transform 1s ease-in-out;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
-        .carousel img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .hero h1 {
+            font-size: 3rem;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
-        .dots {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-        }
-        .dot {
-            width: 12px;
-            height: 12px;
-            background: white;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .dot.active {
-            background: #4CAF50;
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
         main {
             padding: 40px 20px;
             text-align: center;
         }
-        .about, .services, .testimonials, .promotions {
+        .about, .features, .location {
             margin-bottom: 40px;
         }
-        .about p, .services p, .testimonials p {
+        .about p, .features p {
             max-width: 800px;
             margin: 0 auto;
         }
-        .services {
+        .features {
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
+            gap: 40px;
             flex-wrap: wrap;
         }
-        .service {
-            margin: 20px;
+        .feature {
             text-align: center;
+            margin: 20px;
         }
-        .service img {
-            width: 60px;
-            height: 60px;
+        .feature img {
+            width: 80px;
+            height: 80px;
             margin-bottom: 10px;
         }
-        .testimonials .testimonial {
-            margin: 20px;
-        }
-        .promotions img {
+        .location iframe {
             width: 100%;
             max-width: 600px;
-            margin: 10px auto;
-            display: block;
-        }
-        .checkin-form {
-            margin: 20px auto;
-            max-width: 400px;
-            text-align: left;
-            padding: 20px;
-            background: #f4f4f4;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .checkin-form input, .checkin-form button {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .checkin-form button {
-            background: #4CAF50;
-            color: white;
+            height: 300px;
             border: none;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .checkin-form button:hover {
-            background: #45a049;
+            margin-top: 20px;
         }
         footer {
             background: #333;
@@ -154,16 +113,11 @@
         .social-icons a:hover {
             color: #4CAF50;
         }
-        @media (max-width: 768px) {
-            .services {
-                flex-direction: column;
-            }
-        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Hotel Paraíso</h1>
+        <h1>Hotel Domus Esplanada</h1>
     </header>
     <nav>
         <a href="index.html">Início</a>
@@ -173,84 +127,43 @@
         <a href="contato.html">Contato</a>
     </nav>
     <div class="hero">
-        <div class="carousel" id="carousel">
-            <img src="hotel1.jpg" alt="Imagem 1">
-            <img src="hotel2.jpg" alt="Imagem 2">
-            <img src="hotel3.jpg" alt="Imagem 3">
-        </div>
-        <div class="dots" id="dots"></div>
+        <h1>Bem-vindo ao Domus Esplanada</h1>
+        <p>Conforto e elegância no coração de Itabira.</p>
     </div>
     <main>
         <section class="about">
             <h2>Sobre Nós</h2>
-            <p>Descubra o conforto e a elegância no Hotel Paraíso. Nosso hotel oferece acomodações sofisticadas e experiências inesquecíveis.</p>
+            <p>Localizado em uma das principais avenidas de Itabira, o Domus Esplanada oferece 45 suítes de luxo com todo o conforto que você merece. Ideal para viagens de trabalho ou lazer, nosso hotel dispõe de recepção 24 horas, estacionamento com manobrista e um delicioso café da manhã completo.</p>
         </section>
-        <section class="services">
-            <h2>Nossos Serviços</h2>
-            <div class="service">
-                <img src="spa.png" alt="Spa">
-                <p>Spa</p>
+        <section class="features">
+            <h2>Diferenciais</h2>
+            <div class="feature">
+                <img src="cafe-da-manha.png" alt="Café da manhã">
+                <p>Café da manhã completo</p>
             </div>
-            <div class="service">
-                <img src="wifi.jpg" alt="Wi-Fi">
-                <p>Wi-Fi Gratuito</p>
+            <div class="feature">
+                <img src="wifi.png" alt="Wi-Fi">
+                <p>Wi-Fi de alta velocidade</p>
             </div>
-            <div class="service">
-                <img src="pool.png" alt="Piscina">
-                <p>Piscina</p>
+            <div class="feature">
+                <img src="manobrista.png" alt="Manobrista">
+                <p>Estacionamento com manobrista</p>
             </div>
         </section>
-        <section class="testimonials">
-            <h2>Depoimentos</h2>
-            <p class="testimonial">"Melhor estadia que já tive! Recomendo o Hotel Paraíso para todos."</p>
-            <p class="testimonial">"Equipe muito atenciosa e instalações incríveis!"</p>
+        <section class="location">
+            <h2>Localização</h2>
+            <p>Rua Prefeito Virgilínio Quintão, 31 - Esplanada - Itabira/MG</p>
+            <p>Telefone: (31) 3835-1955</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3878.5645187205433!2d-43.227513784687135!3d-19.61955546581479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDM3JzA5LjIiUyA0M8KwMTMnMzYuMiJX!5e0!3m2!1sen!2sbr!4v1608333290913!5m2!1sen!2sbr" allowfullscreen=""></iframe>
         </section>
-        <section class="promotions">
-            <h2>Promoções Especiais</h2>
-            <img src="promo.jpg" alt="Promoção">
-        </section>
-        <form class="checkin-form">
-            <h2>Faça seu Check-in</h2>
-            <input type="text" placeholder="Nome completo" required>
-            <input type="text" placeholder="Número da Reserva" required>
-            <input type="date" required>
-            <button type="submit">Enviar</button>
-        </form>
     </main>
     <footer>
-        <p>&copy; 2024 Hotel Paraíso. Todos os direitos reservados.</p>
+        <p>&copy; 2024 Hotel Domus Esplanada. Todos os direitos reservados.</p>
         <div class="social-icons">
             <a href="#"><i class="fa fa-facebook"></i></a>
             <a href="#"><i class="fa fa-instagram"></i></a>
             <a href="#"><i class="fa fa-twitter"></i></a>
         </div>
     </footer>
-
-    <script>
-        const carousel = document.getElementById("carousel");
-        const dots = document.getElementById("dots");
-        const images = document.querySelectorAll(".carousel img");
-        let index = 0;
-
-        // Create dots dynamically
-        images.forEach((_, i) => {
-            const dot = document.createElement("div");
-            dot.classList.add("dot");
-            if (i === 0) dot.classList.add("active");
-            dots.appendChild(dot);
-        });
-
-        const updateCarousel = () => {
-            carousel.style.transform = `translateX(-${index * 100}%)`;
-            document.querySelectorAll(".dot").forEach((dot, i) => {
-                dot.classList.toggle("active", i === index);
-            });
-        };
-
-        setInterval(() => {
-            index = (index + 1) % images.length;
-            updateCarousel();
-        }, 3000);
-    </script>
 </body>
 </html>
