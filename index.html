@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hotel Domus Esplanada - conforto e excelente localização em Itabira/MG. Ideal para viagens de trabalho e lazer.">
+    <meta name="keywords" content="hotel, Itabira, conforto, café da manhã, hospedagem, Domus Esplanada">
     <title>Hotel Domus Esplanada</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
@@ -40,23 +42,26 @@
             color: white;
             text-decoration: none;
             padding: 15px 20px;
-            transition: background 0.3s;
+            transition: background 0.3s, transform 0.2s;
         }
         nav a:hover {
             background: #575757;
+            transform: scale(1.1);
         }
-        .images-section {
+        nav a.active {
+            background: #4CAF50;
+        }
+        .carousel {
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 40px 20px;
-            background-color: #fff;
+            overflow: hidden;
+            position: relative;
+            margin: 40px auto;
+            max-width: 80%;
         }
-        .images-section img {
-            width: 30%;
-            height: auto;
+        .carousel img {
+            width: 100%;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.5s ease-in-out;
         }
         .details-section {
             background-color: #f0f0f0;
@@ -75,9 +80,18 @@
             margin: 10px 0;
             font-size: 1.1rem;
         }
-        main {
+        .testimonials, .faq, .reservation, .contact-form {
             padding: 40px 20px;
+            background-color: #fff;
             text-align: center;
+        }
+        .testimonials blockquote, .faq details {
+            margin-bottom: 15px;
+        }
+        .faq details summary {
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 10px;
         }
         footer {
             background: #333;
@@ -85,15 +99,34 @@
             text-align: center;
             padding: 20px 10px;
         }
-        /* Mapa */
-        .map-container {
-            margin: 40px 0;
-            text-align: center;
-        }
         .map-container iframe {
             width: 100%;
             height: 400px;
             border: none;
+            margin: 20px 0;
+        }
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+            .carousel img {
+                max-width: 100%;
+            }
+        }
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #121212;
+                color: #f0f0f0;
+            }
+            nav {
+                background: #222;
+            }
+            nav a {
+                color: #ddd;
+            }
+            nav a:hover {
+                background: #444;
+            }
         }
     </style>
 </head>
@@ -102,44 +135,81 @@
         <h1>Hotel Domus Esplanada</h1>
     </header>
     <nav>
-        <a href="index.html">Início</a>
-        <a href="acomodacoes.html">Acomodações</a>
-        <a href="reservas.html">Reservas</a>
-        <a href="checkin.html">Check-in</a>
-        <a href="contato.html">Contato</a>
+        <a href="#home" class="active">Início</a>
+        <a href="#about">Sobre</a>
+        <a href="#differentials">Diferenciais</a>
+        <a href="#testimonials">Depoimentos</a>
+        <a href="#reservations">Reservas</a>
+        <a href="#contact">Contato</a>
     </nav>
-    <div class="images-section">
-        <img src="hotel1.jpg" alt="Fachada do Hotel">
-        <img src="hotel2.jpg" alt="Suíte de Luxo">
-        <img src="cafe.jpg" alt="Café da Manhã Completo">
+
+    <div id="home" class="carousel">
+        <img src="hotel1.jpg" alt="Fachada do Hotel" loading="lazy">
+        <img src="hotel2.jpg" alt="Suíte de Luxo" loading="lazy">
+        <img src="cafe.jpg" alt="Café da Manhã Completo" loading="lazy">
     </div>
-    <section class="details-section">
+
+    <section id="about" class="details-section">
+        <h2>Sobre o Hotel</h2>
+        <p>Localizado no coração de Itabira, o Hotel Domus Esplanada combina conforto, praticidade e excelente atendimento para viagens de trabalho ou lazer.</p>
+    </section>
+
+    <section id="differentials" class="details-section">
         <h2>Diferenciais do Hotel</h2>
         <ul>
-            <li>📞 **Recepção 24 horas**: Atendimento cordial e sempre à disposição.</li>
-            <li>🚗 **Estacionamento com manobrista**: Para sua maior comodidade.</li>
-            <li>📶 **Wi-Fi gratuito**: Disponível em todas as suítes e áreas comuns.</li>
-            <li>☕ **Café da manhã completo**: Inclui pães, bolos, frutas, sucos e mais.</li>
-            <li>📺 **Suítes equipadas**: TV a cabo, internet, telefone e ar-condicionado.</li>
-            <li>⬆️ **Elevador**: Acesso facilitado a todos os andares.</li>
+            <li>📞 Recepção 24 horas</li>
+            <li>🚗 Estacionamento com manobrista</li>
+            <li>📶 Wi-Fi gratuito</li>
+            <li>☕ Café da manhã completo</li>
+            <li>📺 Suítes equipadas</li>
+            <li>⬆️ Elevador</li>
         </ul>
     </section>
-    <main>
-        <section>
-            <h2>Sobre o Hotel</h2>
-            <p>Localizado no coração de Itabira, o Hotel Domus Esplanada combina conforto, praticidade e excelente atendimento para viagens de trabalho ou lazer. Suítes de luxo e serviços de alta qualidade garantem uma estadia inesquecível.</p>
-        </section>
-    </main>
 
-    <!-- Mapa de Localização -->
-    <section class="map-container">
-        <h2>Como Chegar</h2>
-        <p>Endereço: Rua Prefeito Virgilínio Quintão, nº 31 - Itabira/MG</p>
-        <iframe src="https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=Rua+Prefeito+Virgil%C3%ADnio+Quint%C3%A3o,+31+Itabira+MG" allowfullscreen></iframe>
+    <section id="testimonials" class="testimonials">
+        <h2>O que nossos hóspedes dizem</h2>
+        <blockquote>
+            <p>"A estadia foi incrível! Café da manhã maravilhoso e equipe super atenciosa."</p>
+            <footer>- Maria, São Paulo</footer>
+        </blockquote>
+        <blockquote>
+            <p>"Localização perfeita para quem está em viagem de trabalho. Muito confortável."</p>
+            <footer>- João, Belo Horizonte</footer>
+        </blockquote>
+    </section>
+
+    <section id="reservations" class="reservation">
+        <h2>Faça sua Reserva</h2>
+        <form action="/reservas" method="POST">
+            <label for="checkin">Data de Check-in:</label>
+            <input type="date" id="checkin" name="checkin" required>
+            <label for="checkout">Data de Check-out:</label>
+            <input type="date" id="checkout" name="checkout" required>
+            <label for="guests">Número de Hóspedes:</label>
+            <input type="number" id="guests" name="guests" min="1" required>
+            <button type="submit">Reservar</button>
+        </form>
+    </section>
+
+    <section id="contact" class="contact-form">
+        <h2>Contato</h2>
+        <form action="/send-message" method="POST">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Mensagem:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
     </section>
 
     <footer>
         <p>&copy; 2024 Hotel Domus Esplanada. Todos os direitos reservados.</p>
+        <p>Siga-nos: 
+            <a href="https://facebook.com/HotelDomusEsplanada">Facebook</a> | 
+            <a href="https://instagram.com/HotelDomusEsplanada">Instagram</a>
+        </p>
     </footer>
 </body>
 </html>
